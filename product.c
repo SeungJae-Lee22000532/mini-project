@@ -19,13 +19,10 @@ int addProduct(Product *p) {
 }
 
 void readProduct(Product p) {
-	if(p.price == -1) printf("삭제된 정보!\n");
-	else {
 		if(p.gram >= 1000)
 			printf("제품명: %s, 제품중량: %.1f\n제품가격: %d\n별점: %d\n리뷰수: %d\n", p.name, p.kg, p.price, p.review_star, p.review_amount);
 		else
 			printf("제품명: %s, 제품중량: %d\n제품가격: %d\n별점: %d\n리뷰수: %d\n", p.name, p.gram, p.price, p.review_star, p.review_amount);
-	}
 }
 
 void listProduct(Product *p[], int count) {

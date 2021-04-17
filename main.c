@@ -2,11 +2,15 @@
 
 int selectMenu() {
 	int menu;
-	printf("\n*** 점수계산기 ***\n");
+	printf("\n*** mini project ***\n");
 	printf("1. 조회\n");
 	printf("2. 추가\n");
 	printf("3. 수정\n");
 	printf("4. 삭제\n");
+	printf("5. 파일저장\n");
+	printf("6. 제품명검색\n");
+	printf("7. 제품가격검색\n");
+	printf("8. 제품별점검색\n");
 	printf("0. 종료\n\n");
 	printf("=> 원하는 메뉴는? ");
     	scanf("%d", &menu);
@@ -22,6 +26,8 @@ int main() {
 	Product *p[100];
 	int count = 0, index = 0;
 	int menu;
+	count = loadFile(p);
+	index = count;
 
 	while(1) {
 		menu = selectMenu();
@@ -65,6 +71,21 @@ int main() {
 				else
 					printf("취소됨!\n");
 			}
+		}
+		else if(menu == 5) {
+			if(count == 0)
+				printf("데이터가 없습니다!\n");
+			else
+				saveFile(p, count);
+		}
+		else if(menu == 6) {
+			searchName(p, count);
+		}
+		else if(menu == 7) {
+			searchPrice(p, count);
+		}
+		else if(menu == 8) {
+			searchStar(p, count);
 		}
 		else
 			printf("없는 메뉴입니다...\n");
